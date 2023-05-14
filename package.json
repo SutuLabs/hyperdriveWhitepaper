@@ -6,8 +6,10 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
+    "chart.js": "^4.3.0",
     "js-yaml": "^4.1.0",
     "markdown-it-mathjax3": "^4.3.2",
-    "vitepress": "^1.0.0-alpha.75"
+    "vitepress": "^1.0.0-alpha.75",
+    "vue-chartjs": "^5.2.0"
   }
 }
