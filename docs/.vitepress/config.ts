@@ -36,6 +36,7 @@ export default defineConfig({
           { text: '智能合约', link: '/contract' },
           { text: '代币经济学', link: '/tokenomic' },
           { text: '未来发展', link: '/future' },
+          { text: 'FAQ', link: '/faq' },
         ]
       }
     ],
