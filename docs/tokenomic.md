@@ -38,7 +38,7 @@ const curallo= ref(allo);
 
 const day =ref(0);
 
-const totalYear=30;
+const totalYear=8;
 const barData = {
   labels: [... Array(totalYear*12).keys()],
   datasets: allo.map((_,i)=>({
@@ -90,12 +90,17 @@ const plugins= [{
         if (dataX>0 && dataX<=totalYear*12)
         {
             const all = allo.map(_=>_.getValue(dataX*30));
+            const prevall = allo.map(_=>_.getValue(dataX*30) -_.getValue((dataX-1)*30));
             const total = all.reduce((pv,cv)=>pv +cv,0);
+            const prevtotal = prevall.reduce((pv,cv)=>pv +cv,0);
             // console.log(all, total)
 
             curallo.value = allo.map((_,i)=>({
                 name:_.name,
-                note:_.note,value:all[i], 
+                note:_.note,
+                increase:prevall[i], 
+                increasePercent:(prevall[i]*100/prevtotal).toFixed(2)+" %",
+                value:all[i], 
                 percent:(all[i]*100/total).toFixed(2)+" %"}));
                 // percent:i.toFixed(2)+" %"}));
 
@@ -122,10 +127,16 @@ const plugins= [{
 
 <table>
 <tr>
-<th>分配</th>
+<th rowspan="2">分配</th>
+<th colspan="2">累积</th>
+<th colspan="2">较上月增幅</th>
+<th rowspan="2">备注</th>
+</tr>
+<tr>
 <th>份额</th>
 <th>百分比</th>
-<th>备注</th>
+<th>份额</th>
+<th>百分比</th>
 </tr>
 <tr v-for="p of curallo">
   <td>
@@ -136,6 +147,12 @@ const plugins= [{
   </td>
   <td>
     {{ p.percent }}
+  </td>
+  <td>
+    {{ p.increase?.toFixed(0) }}
+  </td>
+  <td>
+    {{ p.increasePercent }}
   </td>
   <td>
     {{ p.note }}
