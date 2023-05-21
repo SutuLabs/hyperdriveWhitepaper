@@ -38,7 +38,7 @@ const curallo= ref(allo);
 
 const day =ref(0);
 
-const totalYear=8;
+const totalYear=20;
 const barData = {
   labels: [... Array(totalYear*12).keys()],
   datasets: allo.map((_,i)=>({

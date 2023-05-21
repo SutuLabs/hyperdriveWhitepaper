@@ -16,7 +16,7 @@ function lockAndRelease(day: number, total: number, lockYear: number, releaseYea
 }
 
 function minerRelease(day) {
-  const initPerDay = 32 * 6 * 24 * 2;
+  const initPerDay = 32 * 6 * 24 * 2 * 2;
   const quarteringDays = 3 * 12 * 30;
   let remainDays = day;
   let remainPerDay = initPerDay;
@@ -25,7 +25,7 @@ function minerRelease(day) {
     if (remainDays > quarteringDays) {
       accu += quarteringDays * remainPerDay;
       remainDays -= quarteringDays;
-      remainPerDay *= 3 / 4;
+      remainPerDay *= 2 / 4;
     } else {
       accu += remainDays * remainPerDay;
       break;
@@ -41,24 +41,24 @@ export const allocation: AllocationItem[] = [
     getValue: (day) => lockAndRelease(day, 10000000, 0, 4),
   },
   {
-    name: "团队预留",
+    name: "社区",
+    note: "",
+    getValue: (day) => lockAndRelease(day, 20000000, 0, 10),
+  },
+  {
+    name: "Genesis",
+    note: "锁定一年，之后线性解锁",
+    getValue: (day) => lockAndRelease(day, 5000000, 2, 4),
+  },
+  {
+    name: "Alpaca Lab",
     note: "锁定一年，之后线性解锁",
     getValue: (day) => lockAndRelease(day, 10000000, 1, 4),
   },
   {
     name: "投资人",
     note: "锁定一年，之后线性解锁",
-    getValue: (day) => lockAndRelease(day, 15000000, 1, 2),
-  },
-  {
-    name: "Chia预耕",
-    note: "锁定四年",
-    getValue: (day) => lockAndRelease(day, 21000000, 4, 4),
-  },
-  {
-    name: "分叉前挖出",
-    note: "锁定四年",
-    getValue: (day) => lockAndRelease(day, 9000000, 4, 4),
+    getValue: (day) => lockAndRelease(day, 15000000, 1, 4),
   },
   {
     name: "挖矿",
