@@ -99,9 +99,10 @@ const plugins= [{
                 name:_.name,
                 note:_.note,
                 increase:prevall[i], 
-                increasePercent:(prevall[i]*100/prevtotal).toFixed(2)+" %",
+                increasePercent:(prevall[i]*100/prevtotal).toFixed(1)+" %",
+                totalPercent:(prevall[i]*100/total).toFixed(1)+" %",
                 value:all[i], 
-                percent:(all[i]*100/total).toFixed(2)+" %"}));
+                percent:(all[i]*100/total).toFixed(1)+" %"}));
                 // percent:i.toFixed(2)+" %"}));
 
 // console.log(all)
@@ -129,14 +130,15 @@ const plugins= [{
 <tr>
 <th rowspan="2">分配</th>
 <th colspan="2">累积</th>
-<th colspan="2">较上月增幅</th>
+<th colspan="3">较上月增幅</th>
 <th rowspan="2">备注</th>
 </tr>
 <tr>
 <th>份额</th>
 <th>百分比</th>
 <th>份额</th>
-<th>百分比</th>
+<th>本月<br/>百分比</th>
+<th>流通<br/>百分比</th>
 </tr>
 <tr v-for="p of curallo">
   <td>
@@ -155,7 +157,29 @@ const plugins= [{
     {{ p.increasePercent }}
   </td>
   <td>
+    {{ p.totalPercent }}
+  </td>
+  <td>
     {{ p.note }}
+  </td>
+</tr>
+<tr>
+  <td>
+    汇总
+  </td>
+  <td>
+    {{ curallo.reduce((cv,pv)=>cv+pv.value??0,0).toFixed(0) }}
+  </td>
+  <td>
+  </td>
+  <td>
+    {{ curallo.reduce((cv,pv)=>cv+pv.increase??0,0).toFixed(0) }}
+  </td>
+  <td>
+  </td>
+  <td>
+  </td>
+  <td>
   </td>
 </tr>
 </table>
