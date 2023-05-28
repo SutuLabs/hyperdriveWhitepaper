@@ -1,7 +1,7 @@
 # 代币经济学
 
 <script setup>
-import { allocation } from './data/token.ts'
+import { allocation } from '../data/token.ts'
 import { ref, toRaw } from 'vue';
 import { useData } from 'vitepress'
 import { Pie } from 'vue-chartjs'
@@ -124,7 +124,17 @@ const plugins= [{
   }]
 </script>
 
-  <Bar :data="barData" :options="barOptions" :plugins="plugins" />
+
+<!-- Cria 区块链将发行名为 CRIA 的链上代币，CRIA 的总发行量为 100,000,000 个。其中： -->
+- 20%（即 20,000,000 个）分配给基金会。Cria 基金会是独立的非营利的中心化组织，主要职责是通过管理和分配资金来支持和促进 Cria 生态系统的长期发展。基金会更偏向于投资有利于生态建设的高科研底层技术。基金会财务情况将始终保持高透明性。
+- 10%（即 10,000,000 个）分配给社区。Cria 社区是所有参与 Cria 生态系统的人和组织的总和，由社区选举的自治委员会代为执行社区意志，社区资金用于奖励生态系统中的开发者或贡献者。
+- 15%（即 15,000,000 个）分配给投资人。Cria 会分多次进行融资，并将代币总量的 15% 分配给投资人。
+- 5%（即 5,000,000 个）分配给 Genesis 团队。Genesis 团队即 Cria 的原始创建成员。
+- 10%（即 10,000,000 个）分配给公司。从链开发开始成立的公司，负责链的研究、开发和运营，并推动社区的早期建设。
+<!-- - 40%（即 40,000,000 个）分配给矿工。矿工挖矿获得，初始每个区块奖励 4 个 CRIA，每三年奖励减少 1/4。 -->
+
+
+<Bar :data="barData" :options="barOptions" :plugins="plugins" />
 
 <table>
 <tr>
@@ -186,4 +196,4 @@ const plugins= [{
 
 
 
-  <Pie :data="piedata" :options="options" />
+<Pie :data="piedata" :options="options" />
