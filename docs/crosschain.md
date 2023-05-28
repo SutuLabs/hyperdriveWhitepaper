@@ -2,15 +2,6 @@
 
 ## 名词
 
-- Hyperdrive
-- xCoin
-- solar sail
-
-![](images/overview.drawio.svg)
-
-![](images/hyperspace.drawio.svg)
-
-![](images/xcoin-app.drawio.svg)
 
 
 ### 区块链互操作性
