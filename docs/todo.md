@@ -9,7 +9,7 @@
 - 算术电路的调研，最终一个结论：我们想用哪一套zksnark方案
 
 
-- SAP messages放在左边
-- 目标无关->目标链无关
+- [x] SAP messages放在左边
+- [x] 目标无关->目标链无关
 - 19个DPoS节点的数量应该论证一下
 - dApp的演化：example->template->sdk
