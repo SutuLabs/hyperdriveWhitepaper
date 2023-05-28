@@ -45,7 +45,7 @@ export default defineConfig({
         text: '生态白皮书',
         items: [
           { text: '市场情况', link: '/business/introduction' },
-          { text: '区块链网络', link: '/business/tokenomic' },
+          { text: '代币经济学', link: '/business/tokenomic' },
           { text: '治理框架', link: '/business/governance' },
           { text: '未来发展', link: '/business/future' },
           // { text: 'FAQ', link: '/business/faq' },
